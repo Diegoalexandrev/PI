@@ -21,7 +21,7 @@ public class TarefaVO {
     private String dataVencimento;
 
     @ColumnInfo(name = "status")
-    private int status; // Alterado para int
+    private int status;
 
     @ColumnInfo(name = "projeto_id")
     private int projetoId;

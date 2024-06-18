@@ -60,13 +60,13 @@ public class CarregaDados {
             projetoUsuarioDAO.addProjetoUsuario(projetoUsuarioVO4);
 
             TarefaDAO tarefaDAO = db.tarefaDAO();
-            TarefaVO tarefaVO = TarefaVO.criarTarefa("Adicionar Novos casos de Uso", "2024-12-12", 0, 1,1);
-            TarefaVO tarefaVO1 = TarefaVO.criarTarefa("Criar mais telos no Protótipo", "2024-06-17", 0, 1, 2);
+            TarefaVO tarefaVO = TarefaVO.criarTarefa("Adicionar Novos casos de Uso", "2024-06-12", 0, 1,1);
+            TarefaVO tarefaVO1 = TarefaVO.criarTarefa("Criar mais telas no Protótipo", "2024-06-17", 0, 1, 2);
             TarefaVO tarefaVO2 = TarefaVO.criarTarefa("Organizar as Regras de Negócio", "2024-06-18", 0, 1, 3);
 
-            TarefaVO tarefaVO3 = TarefaVO.criarTarefa("Corrigir Bugs", "2024-12-12", 0, 2,2);
-            TarefaVO tarefaVO4 = TarefaVO.criarTarefa("Baixar Android Studio na Máquina do IESB", "2024-06-17", 0, 2, 2);
-            TarefaVO tarefaVO5 = TarefaVO.criarTarefa("Adicionar funcionalidades de Login", "2024-06-18", 0, 2, 2);
+            TarefaVO tarefaVO3 = TarefaVO.criarTarefa("Corrigir Bugs", "2024-06-12", 0, 2,2);
+            TarefaVO tarefaVO4 = TarefaVO.criarTarefa("Baixar Android Studio na Máquina do IESB", "2024-06-17", 0, 2, 1);
+            TarefaVO tarefaVO5 = TarefaVO.criarTarefa("Adicionar funcionalidades de Login", "2024-06-18", 0, 2, 3);
 
             tarefaDAO.addTarefa(tarefaVO);
             tarefaDAO.addTarefa(tarefaVO1);
@@ -75,21 +75,7 @@ public class CarregaDados {
             tarefaDAO.addTarefa(tarefaVO4);
             tarefaDAO.addTarefa(tarefaVO5);
 
-            TarefaUsuarioDAO tarefaUsuarioDAO = db.tarefaUsuarioDAO();
 
-            TarefaUsuarioVO tarefaUsuarioVO = TarefaUsuarioVO.criarTarefaUsuario(1, 1);
-            TarefaUsuarioVO tarefaUsuarioVO1 = TarefaUsuarioVO.criarTarefaUsuario(1, 2);
-            TarefaUsuarioVO tarefaUsuarioVO2 = TarefaUsuarioVO.criarTarefaUsuario(1, 3);
-            TarefaUsuarioVO tarefaUsuarioVO3 = TarefaUsuarioVO.criarTarefaUsuario(2, 2);
-            TarefaUsuarioVO tarefaUsuarioVO4 = TarefaUsuarioVO.criarTarefaUsuario(2, 3);
-            TarefaUsuarioVO tarefaUsuarioVO5 = TarefaUsuarioVO.criarTarefaUsuario(3, 1);
-
-            tarefaUsuarioDAO.addTarefaUsuario(tarefaUsuarioVO);
-            tarefaUsuarioDAO.addTarefaUsuario(tarefaUsuarioVO1);
-            tarefaUsuarioDAO.addTarefaUsuario(tarefaUsuarioVO2);
-            tarefaUsuarioDAO.addTarefaUsuario(tarefaUsuarioVO3);
-            tarefaUsuarioDAO.addTarefaUsuario(tarefaUsuarioVO4);
-            tarefaUsuarioDAO.addTarefaUsuario(tarefaUsuarioVO5);
 
 
 

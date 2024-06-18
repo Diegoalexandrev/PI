@@ -1,6 +1,7 @@
 package com.a.pi3;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -12,16 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.ProjetoCardAdapter;
-import adapter.TarefaCardAdapter;
 import database.CarregaDados;
 import model.ProjetoComIntegrantes;
 import viewmodel.UsuarioViewModel;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
     private UsuarioViewModel usuarioViewModel;
-    private ProjetoCardAdapter adapter; // Ajustando o tipo do adapter
-
+    private ProjetoCardAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,23 +31,29 @@ public class MainActivity extends AppCompatActivity {
         CarregaDados carregaDados = new CarregaDados(this);
         carregaDados.carregarDados();
 
-        // Inicializando o ViewModel
-        usuarioViewModel = new ViewModelProvider(this).get(UsuarioViewModel.class);
-
-        // Inicializando o adapter com uma lista vazia e passando o contexto da MainActivity
-        adapter = new ProjetoCardAdapter(this, new ArrayList<>());
-
-        // Configurando o RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        // Observando as mudanças nos projetos com integrantes
+        usuarioViewModel = new ViewModelProvider(this).get(UsuarioViewModel.class);
+       adapter = new ProjetoCardAdapter(this, new ArrayList<>(), new ProjetoCardAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ProjetoComIntegrantes projeto) {
+
+                //Toast.makeText(MainActivity.this, "Card clicado: " + projeto.getId(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, TarefaActivity.class);
+                intent.putExtra("PROJETO_ID", projeto.getId());
+                startActivity(intent);
+
+                }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
         usuarioViewModel.getProjetosComIntegrantes().observe(this, new Observer<List<ProjetoComIntegrantes>>() {
             @Override
             public void onChanged(List<ProjetoComIntegrantes> projetosComIntegrantes) {

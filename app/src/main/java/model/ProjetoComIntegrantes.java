@@ -1,22 +1,32 @@
 package model;
 
+import androidx.room.PrimaryKey;
+
 public class ProjetoComIntegrantes {
+
+    private int id;
     private String nomeProjeto;
     private String nomesIntegrantes;
     private int progresso;
     private String dataVencimento;
-    private String listaTarefasIntegrantesFormatada; // String formatada com as tarefas e integrantes
 
-    public ProjetoComIntegrantes(String nomeProjeto, String nomesIntegrantes, int progresso, String dataVencimento, String listaTarefasIntegrantesFormatada) {
+    public ProjetoComIntegrantes(int id, String nomeProjeto, String nomesIntegrantes, int progresso, String dataVencimento) {
+        this.id=id;
         this.nomeProjeto = nomeProjeto;
         this.nomesIntegrantes = nomesIntegrantes;
         this.progresso = progresso;
         this.dataVencimento = dataVencimento;
-        this.listaTarefasIntegrantesFormatada = listaTarefasIntegrantesFormatada;
     }
 
     // Getters e setters
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNomeProjeto() {
         return nomeProjeto;
     }
@@ -49,11 +59,4 @@ public class ProjetoComIntegrantes {
         this.dataVencimento = dataVencimento;
     }
 
-    public String getListaTarefasIntegrantesFormatada() {
-        return listaTarefasIntegrantesFormatada;
-    }
-
-    public void setListaTarefasIntegrantesFormatada(String listaTarefasIntegrantesFormatada) {
-        this.listaTarefasIntegrantesFormatada = listaTarefasIntegrantesFormatada;
-    }
 }

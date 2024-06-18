@@ -19,10 +19,16 @@ public class ProjetoCardAdapter extends RecyclerView.Adapter<ProjetoCardAdapter.
 
     private List<ProjetoComIntegrantes> projetos;
     private Context context;
+    private OnItemClickListener listener;
 
-    public ProjetoCardAdapter(Context context, List<ProjetoComIntegrantes> projetos) {
+    public interface OnItemClickListener {
+        void onItemClick(ProjetoComIntegrantes projeto);
+    }
+
+    public ProjetoCardAdapter(Context context, List<ProjetoComIntegrantes> projetos, OnItemClickListener listener) {
         this.context = context;
         this.projetos = projetos;
+        this.listener = listener;
     }
 
     public void setProjetos(List<ProjetoComIntegrantes> projetos) {
@@ -45,7 +51,8 @@ public class ProjetoCardAdapter extends RecyclerView.Adapter<ProjetoCardAdapter.
         holder.textIntegrantes.setText(projeto.getNomesIntegrantes());
         holder.textDataVencimento.setText("Data de Vencimento: " + projeto.getDataVencimento());
         holder.textProgresso.setText("Progresso: " + projeto.getProgresso() + "%");
-        // Não utilize holder.textTarefas aqui, isso será tratado no adaptador de tarefas
+
+        holder.bind(projeto, listener);
     }
 
     @Override
@@ -65,6 +72,15 @@ public class ProjetoCardAdapter extends RecyclerView.Adapter<ProjetoCardAdapter.
             textIntegrantes = itemView.findViewById(R.id.textIntegrantes);
             textDataVencimento = itemView.findViewById(R.id.textDataVencimento);
             textProgresso = itemView.findViewById(R.id.textProgresso);
+        }
+
+        public void bind(final ProjetoComIntegrantes projeto, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(projeto);
+                }
+            });
         }
     }
 }
