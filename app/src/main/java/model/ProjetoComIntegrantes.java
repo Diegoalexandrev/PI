@@ -18,8 +18,6 @@ public class ProjetoComIntegrantes {
         this.dataVencimento = dataVencimento;
     }
 
-    // Getters e setters
-
     public int getId() {
         return id;
     }
@@ -42,7 +40,6 @@ public class ProjetoComIntegrantes {
     public void setNomesIntegrantes(String nomesIntegrantes) {
         this.nomesIntegrantes = nomesIntegrantes;
     }
-
     public int getProgresso() {
         return progresso;
     }

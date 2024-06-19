@@ -15,8 +15,5 @@ public interface UsuarioDAO {
     void addUsuario(UsuarioVO usuario);
 
     @Query("SELECT * FROM tb_usuarios")
-    List<UsuarioVO> getAllUsuarios();
-
-    @Query("SELECT * FROM tb_usuarios")
-    LiveData<List<UsuarioVO>> getAllUsuariosLiveData(); // Método para obter LiveData dos usuários
+    LiveData<List<UsuarioVO>> getTodosUsuariosLiveData();
 }

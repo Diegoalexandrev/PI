@@ -18,5 +18,5 @@ public interface ProjetoDAO {
     List<ProjetoVO> getAllProjetos();
 
     @Query("SELECT * FROM tb_projetos")
-    LiveData<List<ProjetoVO>> getAllProjetosLiveData(); // Método para obter LiveData dos projetos
+    LiveData<List<ProjetoVO>> getAllProjetosLiveData();
 }

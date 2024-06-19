@@ -38,16 +38,14 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         usuarioViewModel = new ViewModelProvider(this).get(UsuarioViewModel.class);
-       adapter = new ProjetoCardAdapter(this, new ArrayList<>(), new ProjetoCardAdapter.OnItemClickListener() {
+        adapter = new ProjetoCardAdapter(this, new ArrayList<>(), new ProjetoCardAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ProjetoComIntegrantes projeto) {
-
-                //Toast.makeText(MainActivity.this, "Card clicado: " + projeto.getId(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, TarefaActivity.class);
                 intent.putExtra("PROJETO_ID", projeto.getId());
                 startActivity(intent);
 
-                }
+            }
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

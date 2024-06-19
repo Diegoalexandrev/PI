@@ -20,7 +20,6 @@ public class ProjetoUsuarioVO {
     @ColumnInfo(name = "usuario_id")
     private int usuarioId;
 
-    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -45,7 +44,6 @@ public class ProjetoUsuarioVO {
         this.usuarioId = usuarioId;
     }
 
-    // Método estático de fábrica para criar instâncias de ProjetoUsuarioVO
     public static ProjetoUsuarioVO criarProjetoUsuario(int projetoId, int usuarioId) {
         ProjetoUsuarioVO projetoUsuarioVO = new ProjetoUsuarioVO();
         projetoUsuarioVO.setProjetoId(projetoId);

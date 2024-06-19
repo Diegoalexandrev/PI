@@ -33,7 +33,7 @@ public class ProjetoCardAdapter extends RecyclerView.Adapter<ProjetoCardAdapter.
 
     public void setProjetos(List<ProjetoComIntegrantes> projetos) {
         this.projetos = projetos;
-        notifyDataSetChanged(); // Notifica o RecyclerView para atualizar a exibição
+        notifyDataSetChanged();
     }
 
     @NonNull

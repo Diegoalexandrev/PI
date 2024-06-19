@@ -13,9 +13,7 @@ import model.ComentarioVO;
 public interface ComentarioUsuarioDAO {
     @Insert
     void addComentario(ComentarioUsuarioVO comentarioUsuarioVO);
-
-    //Verificar se está correto
-    @Query("SELECT u.nome AS nome, c.date_time AS dataHora, c.texto AS texto " +
+        @Query("SELECT u.nome AS nome, c.date_time AS dataHora, c.texto AS texto " +
             "FROM comentario c " +
             "INNER JOIN tb_usuarios u ON c.usuario_id = u.id " +
             "WHERE c.projeto_id = :projetoId AND c.tarefa_id = :tarefaId")

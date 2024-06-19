@@ -24,7 +24,6 @@ public class ProjetoVO {
     public ProjetoVO() {
     }
 
-    // Método estático de fábrica para criar instâncias de ProjetoVO
     public static ProjetoVO criarProjeto(String nome, int progresso, String status, String dataVencimento) {
         ProjetoVO projeto = new ProjetoVO();
         projeto.setNome(nome);
@@ -34,7 +33,7 @@ public class ProjetoVO {
         return projeto;
     }
 
-    // Getters e Setters
+
     public int getId() {
         return id;
     }

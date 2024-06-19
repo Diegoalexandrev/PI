@@ -14,19 +14,6 @@ import model.ProjetoUsuarioVO;
 public interface ProjetoUsuarioDAO {
     @Insert
     void addProjetoUsuario(ProjetoUsuarioVO projetoUsuario);
-
-    @Query("SELECT * FROM projeto_usuario")
-    List<ProjetoUsuarioVO> getAllProjetoUsuarios();
-
-    @Query("SELECT * FROM projeto_usuario WHERE projeto_id = :projetoId")
-    List<ProjetoUsuarioVO> getUsuariosByProjetoId(int projetoId);
-
-    @Query("SELECT * FROM projeto_usuario WHERE usuario_id = :usuarioId")
-    List<ProjetoUsuarioVO> getProjetosByUsuarioId(int usuarioId);
-
-    @Query("SELECT * FROM projeto_usuario")
-    LiveData<List<ProjetoUsuarioVO>> getAllProjetoUsuariosLiveData();
-
     @Query("SELECT tb_projetos.id as id, " +
             "tb_projetos.nome AS nomeProjeto, " +
             "GROUP_CONCAT(tb_usuarios.nome, ', ') AS nomesIntegrantes, " +

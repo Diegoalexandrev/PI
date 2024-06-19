@@ -38,11 +38,9 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
 
     public void setTarefas(List<TarefaComIntegrantes> tarefas) {
         this.tarefas = tarefas;
-        notifyDataSetChanged(); // Notifica o RecyclerView para atualizar a exibição
+        notifyDataSetChanged();
     }
 
-
-    // Este método é chamado quando o RecyclerView precisa criar um novo ViewHolder para exibir um item da lista.
     @NonNull
     @Override
     public TarefaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -65,7 +63,6 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
         return tarefas.size();
     }
 
-    // ViewHolder class to hold each item's view
     public static class TarefaViewHolder extends RecyclerView.ViewHolder {
         TextView textNomeTarefa;
         TextView textDataVencimento;
@@ -78,20 +75,10 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
             textResponsavel = itemView.findViewById(R.id.textResponsavel);
         }
 
-        // Bind data to views inside ViewHolder
         public void bind(final TarefaComIntegrantes tarefa, final OnItemClickListener listener) {
             textNomeTarefa.setText(tarefa.getNomesResponsavel());
             textDataVencimento.setText(tarefa.getDataVencimento());
             textResponsavel.setText(tarefa.getNomesResponsavel());
         }
     }
-
-
-
-
-
-
-
-    // Method to update the list of tarefas
-
 }

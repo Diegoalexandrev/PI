@@ -27,21 +27,18 @@ public class TarefaActivity extends AppCompatActivity {
 
     private TarefaViewModel tarefaViewModel;
     private TarefaAdapter tarefaAdapter;
-    private Button btnCreateTask;
-    private int projetoId; // Declarar aqui
+    private Button btnCriarTarefa;
+    private int projetoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tarefa_principal);
 
-        // Receber o projetoId da Intent
-        projetoId = getIntent().getIntExtra("PROJETO_ID", -1); // Atribuir à variável de instância
-
+        projetoId = getIntent().getIntExtra("PROJETO_ID", -1);
         tarefaAdapter = new TarefaAdapter(new ArrayList<>(), this, new TarefaAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(TarefaComIntegrantes tarefa) {
-                // Implementar ação de clique
             }
         });
 
@@ -63,31 +60,24 @@ public class TarefaActivity extends AppCompatActivity {
     }
 
     private void setupCreateTaskButton() {
-        // Encontrar o layout que contém o botão
-        View informacoesTarefaProjeto = findViewById(R.id.people_buttons_layout);
 
-        // Encontrar o botão dentro do layout informacoes_tarefa_projeto
-        btnCreateTask = informacoesTarefaProjeto.findViewById(R.id.btn_create_task);
-        btnCreateTask.setOnClickListener(new View.OnClickListener() {
+        View informacoesTarefaProjeto = findViewById(R.id.informacoes_tarefa);
+
+        btnCriarTarefa= informacoesTarefaProjeto.findViewById(R.id.btn_criar_tarefa);
+        btnCriarTarefa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Verificar se o clique no botão é detectado
                 Log.d("TarefaActivity", "Botão 'Criar nova tarefa' clicado");
-
-                // Iniciar a NovaTarefaActivity com o projetoId correto
                 Intent intent = new Intent(TarefaActivity.this, NovaTarefaActivity.class);
                 intent.putExtra("PROJETO_ID", projetoId);
                 startActivity(intent);
             }
         });
-        Button outroBotao = informacoesTarefaProjeto.findViewById(R.id.btn_finalize_project);
-        outroBotao.setOnClickListener(new View.OnClickListener() {
+        Button btnFinalizarTarefa = informacoesTarefaProjeto.findViewById(R.id.btn_finalizar_projeto);
+        btnFinalizarTarefa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ação quando o outro botão for clicado
                 Toast.makeText(TarefaActivity.this, "Ainda não implementado!", Toast.LENGTH_SHORT).show();
-
-                // Coloque a lógica desejada para este botão aqui
             }
         });
     }

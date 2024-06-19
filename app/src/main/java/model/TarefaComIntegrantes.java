@@ -15,7 +15,6 @@ public class TarefaComIntegrantes {
         this.dataVencimento=dataVencimento;
 
     }
-
     public int getId() {
         return id;
     }

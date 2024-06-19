@@ -39,7 +39,6 @@ public class TarefaUsuarioVO {
         this.usuarioId = usuarioId;
     }
 
-    // Método estático de fábrica para criar instâncias de TarefaUsuarioVO
     public static TarefaUsuarioVO criarTarefaUsuario(int tarefaId, int usuarioId) {
         TarefaUsuarioVO tarefaUsuarioVO = new TarefaUsuarioVO(tarefaId, usuarioId);
         return tarefaUsuarioVO;

@@ -17,16 +17,13 @@ public interface TarefaUsuarioDAO {
 
     @Insert
     void addTarefaUsuario(TarefaUsuarioVO tarefaUsuarioVO);
-
-    //Verificar se esta correto
-
     @Query("SELECT t.id AS id, " +
             "t.nome AS nomeTarefa, " +
             "t.data_vencimento AS dataVencimento, " +
             "t.status AS status, " +
-            "u.nome AS nomesResponsavel " +  // Corrigido para nomesResponsavel
+            "u.nome AS nomesResponsavel " +
             "FROM tarefa AS t " +
-            "LEFT JOIN tb_usuarios AS u ON t.responsavel_id = u.id " +  // Faz o join com a tabela tb_usuarios
+            "LEFT JOIN tb_usuarios AS u ON t.responsavel_id = u.id " +
             "WHERE t.projeto_id = :projetoId")
     LiveData<List<TarefaComIntegrantes>> getTarefasByProjetoId(int projetoId);
 

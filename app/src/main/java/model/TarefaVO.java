@@ -29,7 +29,6 @@ public class TarefaVO {
     @ColumnInfo(name = "responsavel_id")
     private int responsavelId;
 
-    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -78,7 +77,6 @@ public class TarefaVO {
         this.responsavelId = responsavelId;
     }
 
-    // Método estático de fábrica para criar instâncias de TarefaVO
     public static TarefaVO criarTarefa(String nome, String dataVencimento, int status, int projetoId, int responsavelId) { // Alterado para int
         TarefaVO tarefa = new TarefaVO();
         tarefa.setNome(nome);

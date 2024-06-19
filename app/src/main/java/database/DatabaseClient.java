@@ -17,7 +17,6 @@ public class DatabaseClient {
                 .fallbackToDestructiveMigration()
                 .build();
     }
-
     public static synchronized DatabaseClient getInstance(Context context) {
         if (instance == null) {
             instance = new DatabaseClient(context);
@@ -29,7 +28,6 @@ public class DatabaseClient {
         return projetoDatabase;
     }
 
-    // Método para fechar o banco de dados Room
     public void close() {
         if (projetoDatabase != null) {
             projetoDatabase.close();

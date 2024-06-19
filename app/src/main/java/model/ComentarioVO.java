@@ -84,7 +84,6 @@ public class ComentarioVO {
         this.projetoId = projetoId;
     }
 
-    // Método estático de fábrica para criar instâncias de ComentarioVO
     public static ComentarioVO criarComentario(String texto, String dateTime, int usuarioId, int tarefaId, int projetoId) {
         ComentarioVO comentario = new ComentarioVO();
         comentario.setTexto(texto);

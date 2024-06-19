@@ -24,7 +24,6 @@ public class UsuarioVO {
         return new UsuarioVO(0, nome, email, senha, foto); // id inicializado como 0 ou valor padrão
     }
 
-    // Getters e Setters
     public int getId() {
         return id;
     }

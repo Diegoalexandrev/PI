@@ -24,9 +24,6 @@ public interface TarefaDAO {
     @Query("SELECT * FROM tarefa WHERE status = :status")
     LiveData<List<TarefaVO>> getTarefasByStatusLiveData(int status);
 
-    @Query("SELECT * FROM tarefa WHERE id = :tarefaId LIMIT 1")
-    LiveData<TarefaVO> getTarefaByIdLiveData(int tarefaId);
-
     @Query("SELECT * FROM tarefa WHERE projeto_id = :projetoId AND status = :status")
     LiveData<List<TarefaVO>> getTarefasByProjetoIdAndStatusLiveData(int projetoId, int status);
 }
