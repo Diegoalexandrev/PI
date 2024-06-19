@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -26,16 +27,16 @@ public class TarefaActivity extends AppCompatActivity {
 
     private TarefaViewModel tarefaViewModel;
     private TarefaAdapter tarefaAdapter;
-    private Button btnCreateTask; // Declare o botão aqui
-    private int projetoId; // Declare projetoId aqui
-
+    private Button btnCreateTask;
+    private int projetoId; // Declarar aqui
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tarefa_principal);
 
-        int projetoId = getIntent().getIntExtra("PROJETO_ID", -1);
+        // Receber o projetoId da Intent
+        projetoId = getIntent().getIntExtra("PROJETO_ID", -1); // Atribuir à variável de instância
 
         tarefaAdapter = new TarefaAdapter(new ArrayList<>(), this, new TarefaAdapter.OnItemClickListener() {
             @Override
@@ -58,27 +59,7 @@ public class TarefaActivity extends AppCompatActivity {
             }
         });
 
-
-          /* Configuracao para voltar
-        // Configurando a Toolbar
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // Configurando o ícone de navegação para voltar
-        ImageView backIcon = toolbar.findViewById(R.id.back_icon);
-        backIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ação para voltar
-                onBackPressed();
-            }
-        });
-
-         */
-
         setupCreateTaskButton();
-
-
     }
 
     private void setupCreateTaskButton() {
@@ -93,13 +74,22 @@ public class TarefaActivity extends AppCompatActivity {
                 // Verificar se o clique no botão é detectado
                 Log.d("TarefaActivity", "Botão 'Criar nova tarefa' clicado");
 
-                // Iniciar a NovaTarefaActivity
+                // Iniciar a NovaTarefaActivity com o projetoId correto
                 Intent intent = new Intent(TarefaActivity.this, NovaTarefaActivity.class);
                 intent.putExtra("PROJETO_ID", projetoId);
                 startActivity(intent);
             }
         });
-    }
+        Button outroBotao = informacoesTarefaProjeto.findViewById(R.id.btn_finalize_project);
+        outroBotao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ação quando o outro botão for clicado
+                Toast.makeText(TarefaActivity.this, "Ainda não implementado!", Toast.LENGTH_SHORT).show();
 
-    
+                // Coloque a lógica desejada para este botão aqui
+            }
+        });
+    }
 }
+

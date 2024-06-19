@@ -12,12 +12,13 @@ import dao.UsuarioDAO;
 import model.ComentarioVO;
 import model.ProjetoUsuarioVO;
 import model.ProjetoVO;
+import model.ResponsavelTarefa;
 import model.TarefaUsuarioVO;
 import model.TarefaVO;
 import model.UsuarioVO;
 
 
-@Database(entities = {UsuarioVO.class, ProjetoVO.class, ProjetoUsuarioVO.class, TarefaVO.class, ComentarioVO.class, TarefaUsuarioVO.class}, version = 9)
+@Database(entities = {UsuarioVO.class, ProjetoVO.class, ProjetoUsuarioVO.class, TarefaVO.class, ComentarioVO.class, TarefaUsuarioVO.class}, version = 10)
 public abstract class ProjetoDatabase extends RoomDatabase {
     public abstract UsuarioDAO usuarioDAO();
     public abstract ProjetoDAO projetoDAO();

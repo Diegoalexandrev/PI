@@ -49,7 +49,7 @@ public class ProjetoCardAdapter extends RecyclerView.Adapter<ProjetoCardAdapter.
 
         holder.textNomeProjeto.setText(projeto.getNomeProjeto());
         holder.textIntegrantes.setText(projeto.getNomesIntegrantes());
-        holder.textDataVencimento.setText("Data de Vencimento: " + projeto.getDataVencimento());
+        holder.textDataVencimento.setText("Data Prevista: " + projeto.getDataVencimento());
         holder.textProgresso.setText("Progresso: " + projeto.getProgresso() + "%");
 
         holder.bind(projeto, listener);

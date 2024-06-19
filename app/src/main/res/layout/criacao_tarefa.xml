@@ -1,38 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/editTextNomeTarefa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nome da Tarefa"/>
-
-
-    <EditText
-        android:id="@+id/editTextDataVencimento"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Data de Vencimento"
-        android:inputType="date"/>
-
-
-    <EditText
-        android:id="@+id/editTextResponsavelId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID do Responsável"
-        android:inputType="number"/>
-
-
-    <Button
-        android:id="@+id/buttonSalvarTarefa"
+    <!-- Barra superior com o título "PROJETO" -->
+    <TextView
+        android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:text="CADASTRAR TAREFAS"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+    <!-- Layout principal abaixo da barra superior -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_title"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextNomeTarefa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da Tarefa"
+            android:inputType="textCapWords"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="#2C2C2C"
+            android:elevation="2dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="#888888"/>
+
+        <EditText
+            android:id="@+id/editTextDataVencimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data de Vencimento"
+            android:focusable="false"
+            android:clickable="true"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="#2C2C2C"
+            android:elevation="2dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="#888888"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroupResponsaveis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="18dp"
+            android:layout_marginBottom="16dp">
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonSalvarTarefa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:padding="12dp"
+            android:layout_margin="32dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
